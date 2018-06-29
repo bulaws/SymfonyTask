@@ -1,3 +1,5 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+hello:
+   path: /hello
+   controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController::templateAction
+   defaults:
+      template: 'hello.html.twig'
