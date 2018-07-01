@@ -5,6 +5,7 @@ namespace App\Controller;
 
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
 
 class HelloController extends AbstractController
 {
@@ -14,7 +15,7 @@ class HelloController extends AbstractController
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function hello()
+    public function hello() : Response
     {
         return $this->render('hello/hello.html.twig');
     }

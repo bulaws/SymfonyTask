@@ -1,8 +1,11 @@
-welcome:
-   path: /
-   controller: App\Controller\WelcomeController::index
-
 hello:
    path: /hello
    controller: App\Controller\HelloController::hello
 
+welcome:
+   path: /
+   controller: App\Controller\WelcomeController::welcome
+
+guest:
+   path: /guest
+   controller: App\Controller\GuestController::guest

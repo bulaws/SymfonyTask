@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
 
 class WelcomeController extends AbstractController
 {
@@ -11,7 +12,7 @@ class WelcomeController extends AbstractController
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function index()
+    public function welcome() : Response
     {
         return $this->render('welcome/index.html.twig');
     }

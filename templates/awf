@@ -1,0 +1,2 @@
+$firstName
+<p>Person first name: {{ person.firstName }} last name: {{ person.lastName }}</p>
