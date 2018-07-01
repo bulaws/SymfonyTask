@@ -8,30 +8,20 @@ use App\Model\Person;
 class InfoPerson
 {
     public $job;
-    public $age;
 
     /**
      * @return mixed
      */
-    public function info($name)
+    public function info($name) : string
     {
         switch ($name) {
             case "Bob":
-                $this->age = 22;
-                $this->job = "Manager";
+                return $this->job = "Manager";
                 break;
             case "Petro":
-                $this->age = 25;
-                $this->job = "Clerk";
+                return $this->job = "Clerk";
                 break;
         }
-
-        $this->getJob();
-    }
-
-    public function getAge()
-    {
-        return $this->age;
     }
 
     public function getJob()

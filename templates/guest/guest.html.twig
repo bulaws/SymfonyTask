@@ -2,8 +2,8 @@
 
 {% block body %}
     <h1>Info page</h1>
-   
-    {{ dump(info) }}
+    <p>Person first name: {{ person.firstName }} last name: {{ person.lastName }}</p>
+    <p>Position: {{ info }}</p>
     <a href="/">Welcome</a>
 
 {% endblock %}

@@ -19,9 +19,8 @@ class GuestController extends AbstractController
         $firstName = $person->firstName;
         $info = new InfoPerson();
         $infoPerson = $info->info($firstName);
-        var_dump($infoPerson);
         return $this->render('guest/guest.html.twig', [
-             'info' => $infoPerson
+            'person' => $person, 'info' => $infoPerson
         ]);
     }
 }
