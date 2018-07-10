@@ -9,3 +9,7 @@ welcome:
 guest:
    path: /guest
    controller: App\Controller\GuestController::guest
+
+animal:
+    path: /animal
+    controller: App\Controller\AnimalUrlController::index
