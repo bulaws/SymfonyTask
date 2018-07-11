@@ -11,5 +11,5 @@ guest:
    controller: App\Controller\GuestController::guest
 
 animal:
-    path: /animal
+    path: /animal/{name}
     controller: App\Controller\AnimalUrlController::index
