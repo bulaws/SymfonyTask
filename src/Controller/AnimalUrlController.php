@@ -12,9 +12,9 @@ class AnimalUrlController extends AbstractController
     public function index($name) : Response
     {
         $animal = new Animal();
-        $animal = $animal->animalAction($name);
+        $animalAction = $animal->animalAction($name);
         return $this->render('animal_url/index.html.twig', [
-            'animal' => $animal,
+            'animalName' => $name, 'animalAction' => $animalAction,
         ]);
     }
 }

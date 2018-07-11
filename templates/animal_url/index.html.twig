@@ -2,5 +2,7 @@
 
 {% block title %} Animal {% endblock %}
 {% block body %}
-    Animal:{{ animal }}
+    <h1>Animal action</h1>
+    <p>Animal is {{ animalName | default('is not specified')}}!</p>
+    <p>Animal actions {{ animalAction | default('is not specified')}}.</p>
 {% endblock %}

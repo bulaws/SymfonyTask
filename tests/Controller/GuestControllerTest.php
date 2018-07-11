@@ -3,9 +3,6 @@
 namespace App\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
-use App\Model\Person;
-use App\Service\InfoPerson;
-use Throwable;
 
 class GuestControllerTest extends WebTestCase
 {
@@ -25,11 +22,11 @@ class GuestControllerTest extends WebTestCase
         );
     }
 
-    public function testPost()
+    public function testErrorRout()
     {
         $client = static::createClient();
 
-        $crawler = $client->request('POST', '/guest/kolia');
+        $client->request('POST', '/guest/kolia');
         self::assertEquals(404, $client->getResponse()->getStatusCode());
     }
 }
