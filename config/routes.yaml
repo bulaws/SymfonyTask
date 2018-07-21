@@ -12,4 +12,8 @@ guest:
 
 animal:
     path: /animal/{name}
+    controller: App\Controller\AnimalUrlController::animal
+
+home:
+    path: /home/{page_name}
     controller: App\Controller\AnimalUrlController::index

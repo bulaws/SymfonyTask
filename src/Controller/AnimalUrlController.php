@@ -9,7 +9,7 @@ use App\Model\Animal;
 
 class AnimalUrlController extends AbstractController
 {
-    public function index($name) : Response
+    public function animal($name) : Response
     {
         $animal = new Animal();
         $animalAction = $animal->animalAction($name);

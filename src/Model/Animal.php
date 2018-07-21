@@ -3,7 +3,6 @@
 namespace App\Model;
 
 
-
 class Animal
 {
    private static $animalList = [
