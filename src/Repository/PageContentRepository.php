@@ -36,15 +36,20 @@ class PageContentRepository extends ServiceEntityRepository
     }
     */
 
-    /*
-    public function findOneBySomeField($value): ?PageContent
+
+    public function findOneBySomeField($page_name): ?PageContent
     {
         return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
+            ->andWhere('p.page_name = :val')
+            ->setParameter('val', $page_name)
             ->getQuery()
             ->getOneOrNullResult()
         ;
     }
-    */
+
+
+    public function getSomeField()
+    {
+
+    }
 }

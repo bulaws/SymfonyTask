@@ -14,6 +14,6 @@ class WelcomeController extends AbstractController
      */
     public function welcome() : Response
     {
-        return $this->render('welcome/index.html.twig');
+        return $this->render('welcome/welcome.html.twig');
     }
 }
