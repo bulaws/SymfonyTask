@@ -4,13 +4,13 @@ namespace App\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class PageControllerTest extends WebTestCase
+class HomeControllerTest extends WebTestCase
 {
     public function testPage()
     {
         $client = static::createClient();
 
-        $crawler = $client->request('GET', '/page/home');
+        $crawler = $client->request('GET', '/home');
         self::assertEquals(200, $client->getResponse()->getStatusCode());
         self::assertContains(
             "home",
