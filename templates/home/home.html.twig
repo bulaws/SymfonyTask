@@ -5,7 +5,7 @@
     <h1>{{ contents.pagename }}</h1>
     <p>{{  contents.aboutcontent }}</p>
     {% if  contents.showadditionalinfo %}
-    <p>{{  contents.additionalinfo | default('Contacts exists.') }}</p>
+    <p>{{  contents.additionalinfo }}</p>
     {% else %}
     <p>Contacts exists.</p>
     {% endif %}

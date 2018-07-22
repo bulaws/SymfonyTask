@@ -15,5 +15,5 @@ animal:
     controller: App\Controller\AnimalUrlController::animal
 
 home:
-    path: /page/{pageName}
-    controller: App\Controller\PageController::index
+    path: /home
+    controller: App\Controller\HomeController::index

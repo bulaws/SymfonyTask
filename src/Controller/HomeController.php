@@ -8,16 +8,16 @@ use App\Entity\PageContent;
 use App\Repository\PageContentRepository;
 
 
-class PageController extends AbstractController
+class HomeController extends AbstractController
 {
-    public function index($pageName) : Response
+    public function index() : Response
     {
         $manager = $this->getDoctrine()->getManager();
 
         /** @var PageContentRepository $repository */
         $repository =  $manager->getRepository(PageContent::class);
-        $contents = $repository->findOneBySomeField($pageName);
-        return $this->render('page/index.html.twig', [
+        $contents = $repository->findOneBySomeField("home");
+        return $this->render('home/home.html.twig', [
              'contents' => $contents,
         ]);
     }
