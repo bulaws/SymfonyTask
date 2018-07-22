@@ -10,14 +10,13 @@ use App\Repository\PageContentRepository;
 
 class HomeController extends AbstractController
 {
-    public function index($page_name) : Response
+    public function index($pageName) : Response
     {
         $manager = $this->getDoctrine()->getManager();
 
         /** @var PageContentRepository $repository */
         $repository =  $manager->getRepository(PageContent::class);
-        $contents = $repository->findOneBySomeField($page_name);
-        //return new Response($content);
+        $contents = $repository->findOneBySomeField($pageName);
         return $this->render('home/index.html.twig', [
              'contents' => $contents,
         ]);

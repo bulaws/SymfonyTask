@@ -47,9 +47,4 @@ class PageContentRepository extends ServiceEntityRepository
         ;
     }
 
-
-    public function getSomeField()
-    {
-
-    }
 }
