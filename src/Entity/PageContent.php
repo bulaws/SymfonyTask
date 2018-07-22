@@ -9,6 +9,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class PageContent
 {
+    const PAGE_HOME = 'home';
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
