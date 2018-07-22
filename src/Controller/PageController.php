@@ -8,7 +8,7 @@ use App\Entity\PageContent;
 use App\Repository\PageContentRepository;
 
 
-class HomeController extends AbstractController
+class PageController extends AbstractController
 {
     public function index($pageName) : Response
     {
@@ -17,7 +17,7 @@ class HomeController extends AbstractController
         /** @var PageContentRepository $repository */
         $repository =  $manager->getRepository(PageContent::class);
         $contents = $repository->findOneBySomeField($pageName);
-        return $this->render('home/index.html.twig', [
+        return $this->render('page/index.html.twig', [
              'contents' => $contents,
         ]);
     }
