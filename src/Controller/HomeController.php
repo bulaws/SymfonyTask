@@ -16,7 +16,7 @@ class HomeController extends AbstractController
 
         /** @var PageContentRepository $repository */
         $repository =  $manager->getRepository(PageContent::class);
-        $contents = $repository->findOneBySomeField("home");
+        $contents = $repository->findByPageName("home");
         return $this->render('home/home.html.twig', [
              'contents' => $contents,
         ]);

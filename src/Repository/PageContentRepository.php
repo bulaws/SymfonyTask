@@ -19,29 +19,11 @@ class PageContentRepository extends ServiceEntityRepository
         parent::__construct($registry, PageContent::class);
     }
 
-//    /**
-//     * @return PageContent[] Returns an array of PageContent objects
-//     */
-    /*
-    public function findByExampleField($value)
-    {
-        return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('p.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
-
-
-    public function findOneBySomeField($page_name): ?PageContent
+    public function findByPageName($pageName): ?PageContent
     {
         return $this->createQueryBuilder('p')
             ->andWhere('p.page_name = :val')
-            ->setParameter('val', $page_name)
+            ->setParameter('val', $pageName)
             ->getQuery()
             ->getOneOrNullResult()
         ;
