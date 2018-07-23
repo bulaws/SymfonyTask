@@ -16,6 +16,8 @@ final class Version20180721150812 extends AbstractMigration
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
         $this->addSql('ALTER TABLE page_content CHANGE updated_at updated_at DATETIME DEFAULT NULL');
+
+
     }
 
     public function down(Schema $schema) : void
@@ -25,4 +27,5 @@ final class Version20180721150812 extends AbstractMigration
 
         $this->addSql('ALTER TABLE page_content CHANGE updated_at updated_at DATETIME NOT NULL');
     }
+
 }
