@@ -22,7 +22,6 @@ class RepositoryCommitsInfoController extends AbstractController
         } catch (RequestException $e) {
             if ($e->getResponse()->getStatusCode() === 404) {
                 var_dump($e->getResponse()->getStatusCode());
-                die();
                 return $this->render('repositoryInfo/repositoryInfo.html.twig', [
                     'repositoryName' => $repositoryName
                 ]);
