@@ -7,6 +7,11 @@ use App\Model\CommitInfo;
 class RepositoryCommitsInfo
 {
 
+    /**
+     * @var array
+     * @return array
+     */
+
     public function getCommitsList(array $repositoryCommitsInfo) : array
     {
         $repositoryCommitsList = [];
@@ -21,6 +26,16 @@ class RepositoryCommitsInfo
             $repositoryCommitsList []= $commit;
         }
         return $repositoryCommitsList;
+    }
+
+    /**
+     * @var array
+     * @return int
+     */
+
+    public function getCountRepositoryCommit(array $repositoryCommitsList) : int
+    {
+        return $lengthCommit = count($repositoryCommitsList);
     }
 
 }
