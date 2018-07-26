@@ -18,10 +18,8 @@ class RepositoryCommitsInfo
             $commit->setMessage($commitInfo['commit']['message']);
             $commit->setShortSha($commitInfo['sha']);
 
-            $repositoryCommitsList []= (array) $commit;
+            $repositoryCommitsList []= $commit;
         }
-        //var_dump( $repositoryCommitsList);
-        //die();
         return $repositoryCommitsList;
     }
 

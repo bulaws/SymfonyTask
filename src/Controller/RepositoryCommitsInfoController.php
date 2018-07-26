@@ -22,7 +22,7 @@ class RepositoryCommitsInfoController extends AbstractController
         } catch (RequestException $e) {
             if ($e->getResponse()->getStatusCode() === 404) {
                 return $this->render('repositoryInfo/repositoryInfo.html.twig', [
-                    'RepositoryName' => $repositoryName
+                    'repositoryName' => $repositoryName
                 ]);
             }
         }
@@ -34,11 +34,9 @@ class RepositoryCommitsInfoController extends AbstractController
 
         $repositoryCommitsList = $commitsList->getCommitsList($repositoryCommitsInfo);
 
-        var_dump($repositoryCommitsList);
-        die();
         return $this->render('repositoryInfo/repositoryInfo.html.twig', [
            'repositoryCommitsInfo' =>  $repositoryCommitsList,
-            'RepositoryName' => $repositoryName,
+            'repositoryName' => $repositoryName,
         ]);
     }
 }

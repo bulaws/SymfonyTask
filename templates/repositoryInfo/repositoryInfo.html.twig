@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    {% if packageInfo is not defined %}
+    {% if repositoryName is not defined %}
         <h1>Repository<b>{{ repositoryName }}</b> does not exist!</h1>
     {% else %}
         <h1>{{ repositoryName }}</h1>
