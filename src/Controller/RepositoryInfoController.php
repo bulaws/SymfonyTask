@@ -8,6 +8,11 @@ use GuzzleHttp\Exception\RequestException;
 
 class RepositoryInfoController extends AbstractController
 {
+    /*public function __construct(string $userName, string $repositoryName)
+    {
+
+    }*/
+
     public function index(string $userName, string $repositoryName)
     {
         $client = new Client();
@@ -15,7 +20,7 @@ class RepositoryInfoController extends AbstractController
         $commits = 'commits';
 
         try {
-            $response = $client->request('GET', \sprintf('%s/%s.json', $endpoint, $userName,
+            $response = $client->request('GET',\sprintf('%s/%s/%s/%s', $endpoint, $userName,
                 $repositoryName, $commits));
         } catch (RequestException $e) {
             if ($e->getResponse()->getStatusCode() === 404) {
@@ -24,10 +29,11 @@ class RepositoryInfoController extends AbstractController
                 ]);
             }
         }
-        var_dump($response);
-        die();
-        $json = (string) $response->getBody();
 
+        $info = (string) $response->getBody();
+        $repositoryInfo = \json_decode($info, true);
+        var_dump($repositoryInfo);
+        die();
         return $this->render('repositoryInfo/repositoryInfo.html.twig');
     }
 }
