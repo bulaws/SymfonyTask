@@ -5,17 +5,9 @@ namespace App\Model;
 
 class CommitInfo
 {
-    private $message;
     private $author;
+    private $message;
     private $sha;
-
-    /**
-     * @return mixed
-     */
-    public function getMessage()
-    {
-        return $this->message;
-    }
 
     /**
      * @return mixed
@@ -26,11 +18,19 @@ class CommitInfo
     }
 
     /**
+     * @param mixed $author
+     */
+    public function setAuthor($author): void
+    {
+        $this->author = $author;
+    }
+
+    /**
      * @return mixed
      */
-    public function getSha()
+    public function getMessage()
     {
-        return $this->sha;
+        return $this->message;
     }
 
     /**
@@ -42,11 +42,11 @@ class CommitInfo
     }
 
     /**
-     * @param mixed $author
+     * @return mixed
      */
-    public function setAuthor($author): void
+    public function getSha()
     {
-        $this->author = $author;
+        return $this->sha;
     }
 
     /**

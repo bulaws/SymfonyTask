@@ -22,4 +22,4 @@ commit:
     path: /{userName}/{repositoryName}
     requirements:
         repositoryName: .+
-    controller: App\Controller\RepositoryInfoController::index
+    controller: App\Controller\RepositoryCommitsInfoController::index

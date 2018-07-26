@@ -5,14 +5,10 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
-use App\Model\RepositoryInfo;
+use App\Service\RepositoryCommitsInfo;
 
-class RepositoryInfoController extends AbstractController
+class RepositoryCommitsInfoController extends AbstractController
 {
-    /*public function __construct(string $userName, string $repositoryName)
-    {
-
-    }*/
 
     public function index(string $userName, string $repositoryName)
     {
@@ -32,13 +28,17 @@ class RepositoryInfoController extends AbstractController
         }
 
         $info = (string) $response->getBody();
-        $repositoryInfo = \json_decode($info, true);
+        $repositoryCommitsInfo = \json_decode($info, true);
 
-        $modelRepositoryInfo = new RepositoryInfo();
-        $commitsInfo = $modelRepositoryInfo->getCommitsInfo($repositoryInfo);
+        $repositoryCommitsList = new RepositoryCommitsInfo();
 
+        $repositoryCommitsList->getCommitsList( $repositoryCommitsInfo);
+
+        var_dump($repositoryCommitsList);
+        die();
         return $this->render('repositoryInfo/repositoryInfo.html.twig', [
-           'repositoryInfo' =>  $commitsInfo
+           'repositoryCommitsInfo' =>  $repositoryCommitsList,
+            'RepositoryName' => $repositoryName,
         ]);
     }
 }
