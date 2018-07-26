@@ -16,10 +16,12 @@ class RepositoryCommitsInfo
             $commit = new CommitInfo();
             $commit->setAuthor($commitInfo['commit']['author']['name']);
             $commit->setMessage($commitInfo['commit']['message']);
-            $commit->setSha($commitInfo['sha']);
+            $commit->setShortSha($commitInfo['sha']);
 
             $repositoryCommitsList []= (array) $commit;
         }
+        //var_dump( $repositoryCommitsList);
+        //die();
         return $repositoryCommitsList;
     }
 

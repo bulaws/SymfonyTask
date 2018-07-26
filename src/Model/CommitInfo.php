@@ -7,7 +7,7 @@ class CommitInfo
 {
     private $author;
     private $message;
-    private $sha;
+    private $shortSha;
 
     /**
      * @return mixed
@@ -44,17 +44,17 @@ class CommitInfo
     /**
      * @return mixed
      */
-    public function getSha()
+    public function getShortSha()
     {
-        return $this->sha;
+        return $this->shortSha;
     }
 
     /**
-     * @param mixed $sha
+     * @param mixed $shortSha
      */
-    public function setSha($sha): void
+    public function setShortSha($shortSha): void
     {
-        $this->sha = $sha;
+        $this->shortSha = \substr($shortSha, 0, 7);
     }
 
 }

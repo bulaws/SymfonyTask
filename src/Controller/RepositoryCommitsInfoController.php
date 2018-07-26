@@ -30,9 +30,9 @@ class RepositoryCommitsInfoController extends AbstractController
         $info = (string) $response->getBody();
         $repositoryCommitsInfo = \json_decode($info, true);
 
-        $repositoryCommitsList = new RepositoryCommitsInfo();
+        $commitsList = new RepositoryCommitsInfo();
 
-        $repositoryCommitsList->getCommitsList( $repositoryCommitsInfo);
+        $repositoryCommitsList = $commitsList->getCommitsList($repositoryCommitsInfo);
 
         var_dump($repositoryCommitsList);
         die();
