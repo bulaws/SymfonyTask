@@ -21,6 +21,5 @@ home:
 commit:
     path: /{userName}/{repositoryName}
     requirements:
-        userName: .+
         repositoryName: .+
     controller: App\Controller\RepositoryInfoController::index
