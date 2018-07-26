@@ -3,43 +3,29 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use GuzzleHttp\Client;
-use GuzzleHttp\Exception\RequestException;
-use App\Service\RepositoryCommitsInfo;
+use App\Repository\RepositoryCommitsInfo;
 
 class RepositoryCommitsInfoController extends AbstractController
 {
 
     public function index(string $userName, string $repositoryName)
     {
-        $client = new Client();
-        $endpoint = 'https://api.github.com/repos';
-        $commits = 'commits';
-
-        try {
-            $response = $client->request('GET',\sprintf('%s/%s/%s/%s', $endpoint, $userName,
-                $repositoryName, $commits));
-        } catch (RequestException $e) {
-            if ($e->getResponse()->getStatusCode() === 404) {
-                var_dump($e->getResponse()->getStatusCode());
-                return $this->render('repositoryInfo/repositoryInfo.html.twig', [
-                    'repositoryName' => $repositoryName
-                ]);
-            }
-        }
-
-        $info = (string) $response->getBody();
-        $repositoryCommitsInfo = \json_decode($info, true);
 
         $commitsList = new RepositoryCommitsInfo();
 
-        $repositoryCommitsList = $commitsList->getCommitsList($repositoryCommitsInfo);
+        $repositoryCommitsList = $commitsList->getGitApiResponse($userName, $repositoryName);
         $countRepositoryCommitsList = $commitsList->getCountRepositoryCommit($repositoryCommitsList);
 
+        if($repositoryCommitsList) {
         return $this->render('repositoryInfo/repositoryInfo.html.twig', [
            'repositoryCommitsInfo' =>  $repositoryCommitsList,
             'repositoryName' => $repositoryName,
             'countRepositoryCommitsList' => $countRepositoryCommitsList
-        ]);
+        ]);} else{
+            return $this->render('repositoryInfo/repositoryInfo.html.twig', [
+                'repositoryName' => $repositoryName,
+            ]);
+        }
+
     }
 }
