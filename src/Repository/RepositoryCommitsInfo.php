@@ -51,14 +51,4 @@ class RepositoryCommitsInfo
         return $repositoryCommitsList;
     }
 
-    /**
-     * @var array
-     * @return int
-     */
-
-    public function getCountRepositoryCommit(array $repositoryCommitsList) : int
-    {
-        return $lengthCommit = count($repositoryCommitsList);
-    }
-
 }
