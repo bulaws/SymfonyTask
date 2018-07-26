@@ -5,6 +5,7 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
+use App\Model\RepositoryInfo;
 
 class RepositoryInfoController extends AbstractController
 {
@@ -32,8 +33,12 @@ class RepositoryInfoController extends AbstractController
 
         $info = (string) $response->getBody();
         $repositoryInfo = \json_decode($info, true);
-        var_dump($repositoryInfo);
-        die();
-        return $this->render('repositoryInfo/repositoryInfo.html.twig');
+
+        $modelRepositoryInfo = new RepositoryInfo();
+        $commitsInfo = $modelRepositoryInfo->getCommitsInfo($repositoryInfo);
+
+        return $this->render('repositoryInfo/repositoryInfo.html.twig', [
+           'repositoryInfo' =>  $commitsInfo
+        ]);
     }
 }
