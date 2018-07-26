@@ -12,7 +12,7 @@ class RepositoryCommitsInfoController extends AbstractController
     {
         $commitsList = new RepositoryCommitsInfo();
 
-        $repositoryCommitsList = $commitsList->getGitApiResponse($userName, $repositoryName);
+        $repositoryCommitsList = $commitsList->getGitApiRequest($userName, $repositoryName);
 
         if($repositoryCommitsList) {
         return $this->render('repositoryInfo/repositoryInfo.html.twig', [

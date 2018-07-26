@@ -9,7 +9,7 @@ use GuzzleHttp\Exception\RequestException;
 class RepositoryCommitsInfo
 {
 
-    public function getGitApiResponse(string $userName,string $repositoryName) : ?array
+    public function getGitApiRequest(string $userName,string $repositoryName) : ?array
     {
         $client = new Client();
         $endpoint = 'https://api.github.com/repos';
