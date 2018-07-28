@@ -23,3 +23,7 @@ commit:
     requirements:
         repositoryName: .+
     controller: App\Controller\RepositoryCommitsInfoController::index
+
+article:
+    path: /article
+    controller: App\Controller\ArticleController::article
